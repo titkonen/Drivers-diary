@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		0FE6C053276CA71D0002CDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6C052276CA71D0002CDF0 /* AppDelegate.swift */; };
 		0FE6C055276CA71D0002CDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6C054276CA71D0002CDF0 /* SceneDelegate.swift */; };
-		0FE6C057276CA71D0002CDF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6C056276CA71D0002CDF0 /* ViewController.swift */; };
+		0FE6C057276CA71D0002CDF0 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6C056276CA71D0002CDF0 /* AddDataViewController.swift */; };
 		0FE6C05A276CA71D0002CDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE6C058276CA71D0002CDF0 /* Main.storyboard */; };
 		0FE6C05C276CA7250002CDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE6C05B276CA7250002CDF0 /* Assets.xcassets */; };
 		0FE6C05F276CA7250002CDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE6C05D276CA7250002CDF0 /* LaunchScreen.storyboard */; };
+		0FE6C06B276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6C069276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodeld */; };
+		0FE6C06D276CAB9C0002CDF0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6C06C276CAB9C0002CDF0 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0FE6C04F276CA71D0002CDF0 /* My-Driving-Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My-Driving-Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE6C052276CA71D0002CDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FE6C054276CA71D0002CDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0FE6C056276CA71D0002CDF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0FE6C056276CA71D0002CDF0 /* AddDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
 		0FE6C059276CA71D0002CDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FE6C05B276CA7250002CDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FE6C05E276CA7250002CDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FE6C060276CA7250002CDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FE6C06A276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "driving-diary-datamodel.xcdatamodel"; sourceTree = "<group>"; };
+		0FE6C06C276CAB9C0002CDF0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 			children = (
 				0FE6C052276CA71D0002CDF0 /* AppDelegate.swift */,
 				0FE6C054276CA71D0002CDF0 /* SceneDelegate.swift */,
+				0FE6C069276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodeld */,
+				0FE6C06C276CAB9C0002CDF0 /* CoreDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -77,7 +83,7 @@
 		0FE6C067276CA74D0002CDF0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0FE6C056276CA71D0002CDF0 /* ViewController.swift */,
+				0FE6C056276CA71D0002CDF0 /* AddDataViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FE6C057276CA71D0002CDF0 /* ViewController.swift in Sources */,
+				0FE6C057276CA71D0002CDF0 /* AddDataViewController.swift in Sources */,
+				0FE6C06B276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodeld in Sources */,
 				0FE6C053276CA71D0002CDF0 /* AppDelegate.swift in Sources */,
+				0FE6C06D276CAB9C0002CDF0 /* CoreDataManager.swift in Sources */,
 				0FE6C055276CA71D0002CDF0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +392,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0FE6C069276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0FE6C06A276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodel */,
+			);
+			currentVersion = 0FE6C06A276CA8670002CDF0 /* driving-diary-datamodel.xcdatamodel */;
+			path = "driving-diary-datamodel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0FE6C047276CA71C0002CDF0 /* Project object */;
 }
