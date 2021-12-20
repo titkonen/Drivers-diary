@@ -4,13 +4,11 @@ class NoteCell: UITableViewCell {
     
     var noteData: Note! {
         didSet {
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yy"
-            noteTitle.text = noteData.title
-            dateLabel.text = dateFormatter.string(from: noteData.date ?? Date())
-            previewLabel.text = noteData.text
-            
+            noteTitle.text = noteData.endingPlace
+            dateLabel.text = dateFormatter.string(from: noteData.timestamp ?? Date())
+            previewLabel.text = noteData.startingPlace
         }
     }
     

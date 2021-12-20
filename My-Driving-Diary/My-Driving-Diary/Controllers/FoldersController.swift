@@ -25,7 +25,7 @@ class FoldersController: UITableViewController {
         //view.backgroundColor = UIColor.init(rgb: 0x00FFFF)
         navigationItem.title = "Categories"
         
-        noteFolders = CoreDataManager.shared.fetchNoteFolders() // Fetching data
+        //noteFolders = CoreDataManager.shared.fetchNoteFolders() // Fetching data
         
         setupTableView()
     }
@@ -75,8 +75,8 @@ class FoldersController: UITableViewController {
             guard let title = self.textField.text else {
                 return
             }
-            let newFolder = CoreDataManager.shared.createNoteFolder(title: title) ///Creates new folder to the list and coredata
-            noteFolders.append(newFolder)
+           // let newFolder = CoreDataManager.shared.createNoteFolder(title: title) ///Creates new folder to the list and coredata
+           // noteFolders.append(newFolder)
             self.tableView.insertRows(at: [IndexPath(row: noteFolders.count - 1, section: 0)], with: .fade)
         }))
         
@@ -120,11 +120,11 @@ extension FoldersController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
             
-            let noteFolder = noteFolders[indexPath.row]
+           /* let noteFolder = noteFolders[indexPath.row]
             if CoreDataManager.shared.deleteNoteFolder(noteFolder: noteFolder) {
                 noteFolders.remove(at: indexPath.row) /// Remove rows
                 tableView.deleteRows(at: [indexPath], with: .fade)
-            }
+            }*/
             
         }
         return [deleteAction]

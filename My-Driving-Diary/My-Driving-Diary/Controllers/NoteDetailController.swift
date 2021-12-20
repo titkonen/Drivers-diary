@@ -2,13 +2,13 @@ import UIKit
 
 protocol NoteDelegate {
     func saveNewNote(
-        title: String,
-        date: Date,
-        text: String,
-        jobtitle: String,
-        email: String,
-        phoneNumber: String,
-        status: String
+        timestamp: Date,
+        endingPlace: String,
+        startingPlace: String,
+        startingKm: String,
+        distanceKm: String,
+        endingKm: String,
+        driveDescription: String
     )
 }
 
@@ -23,20 +23,30 @@ class NoteDetailController: UIViewController {
     
     var noteData: Note! {
         didSet {
-            dateLabel.text = dateFormatter.string(from: noteData.date ?? Date())
-            textView.text = noteData.title
-            clientName.text = noteData.text ///Preview
-            jobtitle.text = noteData.jobtitle
-            email.text = noteData.email
-            phoneNumber.text = noteData.phoneNumber
-            status.text = noteData.status
+            dateLabel.text = dateFormatter.string(from: noteData.timestamp ?? Date())
+            endingPlace.text = noteData.endingPlace
+            startingPlace.text = noteData.startingPlace
+            startingKm.text = noteData.startingKm
+            distanceKm.text = noteData.distanceKm
+            endingKm.text = noteData.endingKm
+            driveDescription.text = noteData.driveDescription
             
         }
     }
     
     var delegate: NoteDelegate?
     
-    fileprivate var textView: UITextView = {
+    fileprivate lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.textColor = .gray
+        label.text = dateFormatter.string(from: Date())
+        label.textAlignment = .center
+        return label
+    }()
+    
+    fileprivate var endingPlace: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = "Company name"
@@ -47,11 +57,10 @@ class NoteDetailController: UIViewController {
         textField.font = UIFont.systemFont(ofSize: 21, weight: .medium)
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 8
-        
         return textField
     }()
     
-    fileprivate var clientName: UITextView = {
+    fileprivate var startingPlace: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = "Contact name"
@@ -65,17 +74,7 @@ class NoteDetailController: UIViewController {
         return textField
     }()
     
-    fileprivate lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
-        label.textColor = .gray
-        label.text = dateFormatter.string(from: Date())
-        label.textAlignment = .center
-        return label
-    }()
-    
-    fileprivate var jobtitle: UITextView = {
+    fileprivate var startingKm: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = "Jobtitle"
@@ -89,7 +88,7 @@ class NoteDetailController: UIViewController {
         return textField
     }()
     
-    fileprivate var email: UITextView = {
+    fileprivate var distanceKm: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = "Email address"
@@ -103,7 +102,7 @@ class NoteDetailController: UIViewController {
         return textField
     }()
     
-    fileprivate var phoneNumber: UITextView = {
+    fileprivate var endingKm: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = "Phone number"
@@ -117,7 +116,7 @@ class NoteDetailController: UIViewController {
         return textField
     }()
     
-    fileprivate var status: UITextView = {
+    fileprivate var driveDescription: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = "Status of client contact"
@@ -144,52 +143,52 @@ class NoteDetailController: UIViewController {
         
         if self.noteData == nil {
             delegate?.saveNewNote(
-                title: textView.text,
-                date: Date(),
-                text: clientName.text,
-                jobtitle: jobtitle.text,
-                email: email.text,
-                phoneNumber: phoneNumber.text,
-                status: status.text
+                timestamp: Date(),
+                endingPlace: endingPlace.text,
+                startingPlace: startingPlace.text,
+                startingKm: startingKm.text,
+                distanceKm: distanceKm.text,
+                endingKm: endingKm.text,
+                driveDescription: driveDescription.text
             )
         } else {
             /// updates title text
-            guard let newText = self.textView.text else {
+            guard let newEndingPlace = self.endingPlace.text else {
                 return
             }
             /// Updates Description text
-            guard let newPreview = self.clientName.text else {
+            guard let newStartingPlace = self.startingPlace.text else {
                 return
             }
             
             /// Updates Jobtitle text
-            guard let newJobtitle = self.jobtitle.text else {
+            guard let newStartingKm = self.startingKm.text else {
                 return
             }
 
             /// Updates email text
-            guard let newEmail = self.email.text else {
+            guard let newDistanceKm = self.distanceKm.text else {
                 return
             }
             
             /// Updates phoneNumber text
-            guard let newPhoneNumber = self.phoneNumber.text else {
+            guard let newEndingKm = self.endingKm.text else {
                 return
             }
             
             /// Updates phoneNumber text
-            guard let newStatus = self.status.text else {
+            guard let newDriveDescription = self.driveDescription.text else {
                 return
             }
             
             CoreDataManager.shared.saveUpdatedNote(
                 note: self.noteData,
-                newText: newText,
-                newPreview: newPreview,
-                newJobtitle: newJobtitle,
-                newEmail: newEmail,
-                newPhoneNumber: newPhoneNumber,
-                newStatus: newStatus
+                newEndingPlace: newEndingPlace,
+                newStartingPlace: newStartingPlace,
+                newStartingKm: newStartingKm,
+                newDistanceKm: newDistanceKm,
+                newEndingKm: newEndingKm,
+                newDriveDescription: newDriveDescription
             )
         }
     }
@@ -222,50 +221,47 @@ class NoteDetailController: UIViewController {
     // MARK: FUNCTIONS
     fileprivate func setupUI() {
         view.addSubview(dateLabel)
-        view.addSubview(textView)
-        view.addSubview(clientName)
-        view.addSubview(jobtitle)
-        view.addSubview(email)
-        view.addSubview(phoneNumber)
-        view.addSubview(status)
+        view.addSubview(endingPlace)
+        view.addSubview(startingPlace)
+        view.addSubview(startingKm)
+        view.addSubview(distanceKm)
+        view.addSubview(endingKm)
+        view.addSubview(driveDescription)
         
         dateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
         dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
-        textView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 20).isActive = true
-        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        textView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -720).isActive = true
+        endingPlace.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 20).isActive = true
+        endingPlace.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        endingPlace.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        endingPlace.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -720).isActive = true
         
-        clientName.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        clientName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        clientName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        clientName.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -660).isActive = true
+        startingPlace.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        startingPlace.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        startingPlace.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        startingPlace.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -660).isActive = true
     
-        jobtitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
-        jobtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        jobtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        jobtitle.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -610).isActive = true
+        startingKm.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        startingKm.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        startingKm.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        startingKm.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -610).isActive = true
   
-        email.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
-        email.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        email.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        email.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -560).isActive = true
+        distanceKm.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        distanceKm.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        distanceKm.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        distanceKm.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -560).isActive = true
   
-        phoneNumber.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
-        phoneNumber.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        phoneNumber.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        phoneNumber.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -510).isActive = true
+        endingKm.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
+        endingKm.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        endingKm.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        endingKm.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -510).isActive = true
   
-        status.topAnchor.constraint(equalTo: view.topAnchor, constant: 420).isActive = true
-        status.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        status.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        status.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -310).isActive = true
+        driveDescription.topAnchor.constraint(equalTo: view.topAnchor, constant: 420).isActive = true
+        driveDescription.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        driveDescription.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        driveDescription.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -310).isActive = true
   
     }
-    
-    /// Text field testing
 
-    
 }

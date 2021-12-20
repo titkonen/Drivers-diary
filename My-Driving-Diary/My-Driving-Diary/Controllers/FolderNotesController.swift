@@ -71,7 +71,7 @@ class FolderNotesController: UITableViewController, UISearchBarDelegate {
     // MARK: SEARCH: FILTERING DATA
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredNotes = notes.filter({ (note) -> Bool in
-            return note.title?.lowercased().contains(searchText.lowercased()) ?? false
+            return note.endingPlace?.lowercased().contains(searchText.lowercased()) ?? false
         })
         if searchBar.text!.isEmpty && filteredNotes.isEmpty {
             filteredNotes = notes
@@ -141,23 +141,22 @@ extension FolderNotesController {
 // MARK: EXTENSION NoteDelegate
 extension FolderNotesController: NoteDelegate {
     func saveNewNote(
-        title: String,
-        date: Date,
-        text: String,
-        jobtitle: String,
-        email: String,
-        phoneNumber: String,
-        status: String
+        timestamp: Date,
+        endingPlace: String,
+        startingPlace: String,
+        startingKm: String,
+        distanceKm: String,
+        endingKm: String,
+        driveDescription: String
         ) {
         let newNote = CoreDataManager.shared.createNewNote(
-            title: title,
-            date: date,
-            text: text,
-            jobtitle: jobtitle,
-            email: email,
-            phoneNumber: phoneNumber,
-            status: status
-            //noteFolder: self.folderData
+            timestamp: timestamp,
+            endingPlace: endingPlace,
+            startingPlace: startingPlace,
+            startingKm: startingKm,
+            distanceKm: distanceKm,
+            endingKm: endingKm,
+            driveDescription: driveDescription
         ) ///Creates new note to the list and coredata
         notes.append(newNote)
         filteredNotes.append(newNote)

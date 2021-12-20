@@ -19,8 +19,6 @@
 		0FFD810826DE333900698EF6 /* NoteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810726DE333900698EF6 /* NoteDetailController.swift */; };
 		0FFD810B26DE48D200698EF6 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810A26DE48D200698EF6 /* FolderCell.swift */; };
 		0FFD810D26DE995B00698EF6 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810C26DE995B00698EF6 /* NoteCell.swift */; };
-		0FFD811026DF418C00698EF6 /* NoteFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810F26DF418C00698EF6 /* NoteFolder.swift */; };
-		0FFD811226DF419B00698EF6 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD811126DF419B00698EF6 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,13 +32,13 @@
 		0F1ABB7726DD05AA0023C662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F1ABB7E26DD0E8D0023C662 /* FolderNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderNotesController.swift; sourceTree = "<group>"; };
 		0F1ABB8026DD16BF0023C662 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		0F6AFAA52770B94300FDD991 /* Simple-cms 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple-cms 3.xcdatamodel"; sourceTree = "<group>"; };
+		0F6AFAA62770BD0D00FDD991 /* Simple-cms 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple-cms 4.xcdatamodel"; sourceTree = "<group>"; };
 		0F84856026E0F9220027D42C /* ViestitApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ViestitApp.xcdatamodel; sourceTree = "<group>"; };
 		0F84856226E0FD970027D42C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0FFD810726DE333900698EF6 /* NoteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailController.swift; sourceTree = "<group>"; };
 		0FFD810A26DE48D200698EF6 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		0FFD810C26DE995B00698EF6 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
-		0FFD810F26DF418C00698EF6 /* NoteFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFolder.swift; sourceTree = "<group>"; };
-		0FFD811126DF419B00698EF6 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +80,6 @@
 				0F1ABB7426DD05AA0023C662 /* LaunchScreen.storyboard */,
 				0F1ABB7726DD05AA0023C662 /* Info.plist */,
 				0F1ABB8026DD16BF0023C662 /* extension.swift */,
-				0F84855F26E0F9220027D42C /* Simple-cms.xcdatamodeld */,
-				0F84856226E0FD970027D42C /* CoreDataManager.swift */,
 			);
 			path = "My-Driving-Diary";
 			sourceTree = "<group>";
@@ -110,8 +106,8 @@
 		0FFD810E26DF417700698EF6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0FFD810F26DF418C00698EF6 /* NoteFolder.swift */,
-				0FFD811126DF419B00698EF6 /* Note.swift */,
+				0F84856226E0FD970027D42C /* CoreDataManager.swift */,
+				0F84855F26E0F9220027D42C /* Simple-cms.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,10 +188,8 @@
 				0F84856126E0F9220027D42C /* Simple-cms.xcdatamodeld in Sources */,
 				0F1ABB6C26DD05A60023C662 /* SceneDelegate.swift in Sources */,
 				0F84856326E0FD970027D42C /* CoreDataManager.swift in Sources */,
-				0FFD811226DF419B00698EF6 /* Note.swift in Sources */,
 				0F1ABB8126DD16BF0023C662 /* extension.swift in Sources */,
 				0F1ABB7F26DD0E8D0023C662 /* FolderNotesController.swift in Sources */,
-				0FFD811026DF418C00698EF6 /* NoteFolder.swift in Sources */,
 				0FFD810D26DE995B00698EF6 /* NoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,10 +387,12 @@
 		0F84855F26E0F9220027D42C /* Simple-cms.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0F6AFAA62770BD0D00FDD991 /* Simple-cms 4.xcdatamodel */,
+				0F6AFAA52770B94300FDD991 /* Simple-cms 3.xcdatamodel */,
 				0F04748C26E61D8900474CE3 /* Simple-cms 2.xcdatamodel */,
 				0F84856026E0F9220027D42C /* ViestitApp.xcdatamodel */,
 			);
-			currentVersion = 0F04748C26E61D8900474CE3 /* Simple-cms 2.xcdatamodel */;
+			currentVersion = 0F6AFAA62770BD0D00FDD991 /* Simple-cms 4.xcdatamodel */;
 			path = "Simple-cms.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
