@@ -20,9 +20,7 @@ class FolderNotesController: UITableViewController, UISearchBarDelegate {
     // MARK: LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.title = "List of clients"
-        
+        self.navigationItem.title = "Driving diary"
         setupTableView()
         setupSearchBar()
     }

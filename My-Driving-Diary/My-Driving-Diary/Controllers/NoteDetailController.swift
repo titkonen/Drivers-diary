@@ -30,7 +30,6 @@ class NoteDetailController: UIViewController {
             distanceKm.text = noteData.distanceKm
             endingKm.text = noteData.endingKm
             driveDescription.text = noteData.driveDescription
-            
         }
     }
     
@@ -49,7 +48,7 @@ class NoteDetailController: UIViewController {
     fileprivate var endingPlace: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = "Company name"
+        textField.text = "Route ending place"
         textField.isEditable = true
         textField.textColor = .black
         textField.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
@@ -63,7 +62,7 @@ class NoteDetailController: UIViewController {
     fileprivate var startingPlace: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = "Contact name"
+        textField.text = "Route starting place"
         textField.isEditable = true
         textField.textColor = .black
         textField.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
@@ -77,7 +76,7 @@ class NoteDetailController: UIViewController {
     fileprivate var startingKm: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = "Jobtitle"
+        textField.text = "Starting km"
         textField.isEditable = true
         textField.textColor = .black
         textField.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
@@ -91,7 +90,7 @@ class NoteDetailController: UIViewController {
     fileprivate var distanceKm: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = "Email address"
+        textField.text = "Total distance"
         textField.isEditable = true
         textField.textColor = .black
         textField.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
@@ -105,7 +104,7 @@ class NoteDetailController: UIViewController {
     fileprivate var endingKm: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = "Phone number"
+        textField.text = "Ending km"
         textField.isEditable = true
         textField.textColor = .black
         textField.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
@@ -119,7 +118,7 @@ class NoteDetailController: UIViewController {
     fileprivate var driveDescription: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = "Status of client contact"
+        textField.text = "Drive description"
         textField.isEditable = true
         textField.textColor = .black
         textField.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
