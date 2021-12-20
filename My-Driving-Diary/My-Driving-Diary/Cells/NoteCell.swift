@@ -6,16 +6,16 @@ class NoteCell: UITableViewCell {
         didSet {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yy"
-            noteTitle.text = noteData.endingPlace
             dateLabel.text = dateFormatter.string(from: noteData.timestamp ?? Date())
-            previewLabel.text = noteData.startingPlace
+            endingPlaceLabel.text = noteData.endingPlace
+            startingPlaceLabel.text = noteData.startingPlace
         }
     }
     
     /// Note title
-    fileprivate var noteTitle: UILabel = {
+    fileprivate var endingPlaceLabel: UILabel = {
         let label = UILabel()
-        label.text = "Places to take photos"
+        label.text = "Drive ending place"
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         return label
     }()
@@ -30,10 +30,10 @@ class NoteCell: UITableViewCell {
     }()
         
     /// Preview label
-    fileprivate var previewLabel: UILabel = {
+    fileprivate var startingPlaceLabel: UILabel = {
         let label = UILabel()
-        label.text = "The note text will go here for note preview..."
-        label.font = UIFont.systemFont(ofSize: 13, weight: .light)
+        label.text = "Drive starting place "
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.textColor = .gray
         //label.textColor = UIColor.gray.withAlphaComponent(0.8)
         return label
@@ -41,7 +41,7 @@ class NoteCell: UITableViewCell {
     
     /// horizontal stack view
     fileprivate lazy var horizontalStackView: UIStackView = {
-        let s = UIStackView(arrangedSubviews: [dateLabel, previewLabel, UIView()])
+        let s = UIStackView(arrangedSubviews: [dateLabel, startingPlaceLabel, UIView()])
         s.axis = .horizontal
         s.spacing = 10
         s.alignment = .leading
@@ -50,7 +50,7 @@ class NoteCell: UITableViewCell {
     
     /// vertical stack view
     fileprivate lazy var verticalStackView: UIStackView = {
-        let s = UIStackView(arrangedSubviews: [noteTitle, horizontalStackView])
+        let s = UIStackView(arrangedSubviews: [endingPlaceLabel, horizontalStackView])
         s.axis = .vertical
         s.spacing = 4
         s.translatesAutoresizingMaskIntoConstraints = false
